@@ -14,21 +14,38 @@ export const Container = styled.div<ContainerProps>`
     padding: ${({ size }) => (size === 'small' ? '0 20px ' : '0 20px 150px')};
     display: flex;
     align-items: center;
+    opacity: 0.6;
     justify-content: space-between;
 
     nav {
       a {
         color: #fff;
         text-decoration: none;
+        opacity: 0.6;
         font-size: 16px;
         transition: opacity 0.2s;
+        position: relative;
 
         & + a {
           margin-left: 32px;
         }
 
         &:hover {
-          opacity: 0.6;
+          opacity: 1;
+        }
+
+        &.active {
+          opacity: 1;
+        }
+
+        &.active:after {
+          content: '';
+          width: 73px;
+          height: 2px;
+          background: #ff872c;
+          position: absolute;
+          top: 27px;
+          left: 0;
         }
       }
     }
